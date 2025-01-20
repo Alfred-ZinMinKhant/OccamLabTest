@@ -1,0 +1,50 @@
+<div class="container mt-4">
+  <h1>Exhibitor Registration Form</h1>
+
+  <!-- Event Selection -->
+  <label for="event-select">Select Event:</label>
+  <select
+    id="event-select"
+    [(ngModel)]="selectedEvent"
+    (change)="filterCompanies()"
+  >
+    <option *ngFor="let event of events" [value]="event">{{ event }}</option>
+  </select>
+
+  <!-- Company Dropdown -->
+  <label for="company-select">Select Company:</label>
+  <select id="company-select" [(ngModel)]="selectedCompany">
+    <option *ngFor="let company of filteredCompanies" [value]="company">
+      {{ company }}
+    </option>
+  </select>
+
+  <!-- Exhibitor Cards -->
+  <div *ngFor="let card of exhibitorCards; let i = index">
+    <div class="card mt-3">
+      <h5>Exhibitor {{ i + 1 }}</h5>
+      <input
+        type="text"
+        placeholder="Name on Badge"
+        [(ngModel)]="card.nameOnBadge"
+      />
+      <input type="text" placeholder="Job Title" [(ngModel)]="card.jobTitle" />
+      <input type="text" placeholder="Country" [(ngModel)]="card.country" />
+      <input
+        type="email"
+        placeholder="Email Address"
+        [(ngModel)]="card.emailAddress"
+        required
+      />
+      <button class="btn btn-danger" (click)="removeCard(i)">Remove</button>
+    </div>
+  </div>
+
+  <!-- Add New Card -->
+  <button class="btn btn-primary mt-3" (click)="addCard()">
+    Add Exhibitor
+  </button>
+
+  <!-- Register -->
+  <button class="btn btn-success mt-3" (click)="register()">Register</button>
+</div>

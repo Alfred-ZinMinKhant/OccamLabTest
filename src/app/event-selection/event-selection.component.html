@@ -1,0 +1,54 @@
+<div class="container mt-4">
+  <div class="card p-4">
+    <!-- Event Selection -->
+    <p class="event">Event Selection</p>
+    <div class="form-group">
+      <div *ngFor="let event of events" class="form-check">
+        <input
+          type="radio"
+          class="form-check-input event-radio"
+          id="event-{{ event }}"
+          name="event"
+          [(ngModel)]="selectedEvent"
+          [value]="event"
+          (change)="onEventChange()"
+          [checked]="event === events[0]"
+        />
+        <label class="form-check-label" for="event-{{ event }}">
+          {{ event }}
+        </label>
+      </div>
+    </div>
+
+    <!-- Company Selection -->
+    <p class="company">Company</p>
+    <small class="form-text text-muted">
+      If you are unable to find your company name, please approach our Exhibitor
+      Team for assistance.
+    </small>
+    <div class="form-group">
+      <div class="custom-select-container" [class.disabled]="!selectedEvent">
+        <div
+          class="custom-select"
+          (click)="toggleDropdown()"
+          [class.disabled]="!selectedEvent"
+        >
+          <span>{{ selectedCompany || "Please select" }}</span>
+          <i class="arrow"></i>
+        </div>
+        <div class="custom-dropdown" *ngIf="dropdownOpen">
+          <div
+            *ngFor="let company of filteredCompanies"
+            class="custom-option"
+            [ngClass]="{ selected: company === selectedCompany }"
+            (click)="onOptionSelect(company)"
+          >
+            {{ company }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr />

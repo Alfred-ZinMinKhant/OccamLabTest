@@ -1,0 +1,65 @@
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h2 {
+  font-size: 18px;
+  font-family: "Montserrat", sans-serif;
+  color: #6e6b7b;
+}
+
+p {
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  color: #6e6b7b;
+}
+
+span.unique-code {
+  font-size: 32px;
+  font-family: "Montserrat", sans-serif;
+  color: #ee4036;
+  letter-spacing: 16px;
+  font-weight: bold;
+}
+
+button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+
+  &.save-image {
+    background-color: #ee4036;
+    color: white;
+    &:hover {
+      background-color: #e0392f; // Darker shade on hover
+    }
+  }
+
+  &.back-to-home {
+    background-color: transparent;
+    color: #ee4036;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

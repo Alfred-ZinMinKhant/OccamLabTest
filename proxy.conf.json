@@ -1,0 +1,10 @@
+{
+  "/country": {
+    "target": "https://staging-fha-2024.occamlab.com.sg",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/country": "/public/provinces.json"
+    }
+  }
+}

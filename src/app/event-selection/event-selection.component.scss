@@ -1,0 +1,180 @@
+/* Center the form and apply card style */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.card {
+  max-width: 500px;
+  width: 100%;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Event Selection Radio Button Style */
+.event {
+  color: #6e6b7b;
+  font-family: "Montserrat";
+  font-size: 12px;
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+}
+
+/* Custom Style for Radio Buttons */
+.event-radio {
+  -webkit-appearance: none; /* Remove default appearance */
+  -moz-appearance: none;
+  appearance: none;
+  border: 2px solid #6e6b7b; /* Outer ring color */
+  border-radius: 50%; /* Circular shape */
+  width: 15px;
+  height: 15px;
+  position: relative;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+.event-radio:checked {
+  background-color: #ee4036; /* Inner circle color when checked */
+  border-color: #ee4036; /* Outer ring border color when checked */
+}
+
+.event-radio:hover {
+  cursor: pointer;
+  background-color: #ee4036; /* Hover effect */
+}
+
+.event-radio:focus {
+  outline: none; /* Remove focus outline */
+}
+
+/* Label styling */
+.company {
+  color: #6e6b7b;
+  font-family: "Montserrat";
+  font-size: 12px;
+}
+
+.form-text {
+  color: #6e6b7b;
+  font-family: "Montserrat";
+  font-size: 11px;
+}
+
+.form-check-label {
+  cursor: pointer;
+}
+
+.form-check-label {
+  padding-left: 10px;
+  color: #6e6b7b;
+  font-family: "Montserrat";
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Company Select Dropdown */
+/* Container for the custom dropdown */
+.custom-select-container.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.custom-select.disabled {
+  cursor: not-allowed;
+}
+
+.custom-select .arrow {
+  pointer-events: none;
+}
+
+.custom-select-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* The custom select box */
+.custom-select {
+  padding: 10px 15px;
+  border: 2px solid #d8d6de;
+  background-color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  transition: all 0.3s ease;
+}
+
+/* Arrow icon */
+.arrow {
+  border: solid #61696d;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+/* Opened arrow when dropdown is active */
+.custom-select.open .arrow {
+  transform: rotate(-135deg);
+}
+
+/* The dropdown list */
+.custom-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: none;
+  background-color: white;
+  border-radius: 5px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Each dropdown option */
+.custom-option {
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for options */
+.custom-option:hover {
+  background-color: #fde8e7;
+  color: #ee4036;
+}
+/* Selected effect for options */
+.custom-option.selected {
+  background-color: #ee4036;
+  color: #fff;
+}
+/* Close the dropdown when clicking outside of it */
+body {
+  cursor: pointer;
+}
+
+body:not(.custom-select-container) .custom-dropdown {
+  display: none;
+}

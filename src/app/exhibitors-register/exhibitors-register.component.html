@@ -1,0 +1,107 @@
+<div class="container mt-4">
+  <div class="exhibitors-register">
+    <p class="mandatory">* All fields are mandatory.</p>
+
+    <div class="card-container">
+      <div *ngFor="let card of exhibitorCards; let i = index" class="card">
+        <!-- Exhibitor Title and Remove Button -->
+        <div class="card-header">
+          <h5>Exhibitor #{{ i + 1 }}</h5>
+          <button class="remove-btn" (click)="removeCard(i)">Remove</button>
+        </div>
+
+        <!-- Form Fields -->
+        <div class="form-group">
+          <label for="emailAddress">Email Address</label>
+          <input
+            id="emailAddress"
+            type="email"
+            [(ngModel)]="card.emailAddress"
+            (ngModelChange)="validateEmail(card)"
+            required
+          />
+          <div *ngIf="card.emailError" class="error-message">
+            Invalid email address
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="nameOnBadge">Name on Badge</label>
+          <input
+            id="nameOnBadge"
+            type="text"
+            [(ngModel)]="card.nameOnBadge"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="jobTitle">Job Title</label>
+          <input
+            id="jobTitle"
+            type="text"
+            [(ngModel)]="card.jobTitle"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="selectCountry">Country</label>
+          <div class="custom-select-container">
+            <div class="custom-select" (click)="toggleDropdown(card)">
+              <span>{{ card.country }}</span>
+              <i class="arrow"></i>
+            </div>
+
+            <div class="custom-dropdown" *ngIf="card.dropdownOpen">
+              <div
+                *ngFor="let country of countries"
+                class="custom-option"
+                [ngClass]="{ selected: country === card.country }"
+                (click)="onCountrySelect(country, card)"
+              >
+                {{ country }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="companyOnBadge">Company on Badge</label>
+          <input
+            id="companyOnBadge"
+            type="text"
+            [(ngModel)]="card.companyOnBadge"
+            (ngModelChange)="validateCompany(card)"
+            [value]="selectedCompany"
+          />
+          <div *ngIf="card.companyError" class="error-message">
+            Company does not exist in the database
+          </div>
+        </div>
+
+        <!-- Error Message -->
+        <div *ngIf="card.errorMessage" class="error-message">
+          {{ card.errorMessage }}
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="isRegistrationCompleted">
+      <app-registration-completed-popup
+        [uniqueCode]="uniqueCode"
+      ></app-registration-completed-popup>
+    </div>
+
+    <button
+      class="add-btn"
+      (click)="addCard()"
+      [disabled]="exhibitorCards.length >= 10"
+    >
+      <span class="plus-circle">+</span> Add Exhibitor
+    </button>
+
+    <hr />
+
+    <button class="register-btn" (click)="register()">Register</button>
+  </div>
+</div>
