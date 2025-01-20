@@ -75,3 +75,17 @@ Known Limitations or Areas for Improvement
 2. Performance Optimization: The application could benefit from performance improvements in areas like large form handling. This could be done by lazy loading components or optimizing change detection in Angular.
 3. End-to-End Testing: While unit tests are implemented, end-to-end (e2e) testing is not fully set up in the project. Adding e2e tests with a framework like Protractor or Cypress would help ensure the app works as expected in a real-world scenario.
 4. Mobile Responsiveness: The mobile responsiveness of some components could be improved, especially for forms with complex layouts. This might require additional media queries and testing on various devices.
+
+Setup Instructions
+
+1. Clone the repository:
+   git clone https://github.com/Alfred-ZinMinKhant/OccamLabTest.git
+
+2. Navigate to the project directory:
+   cd OccamLabTest
+
+3. Install the dependencies:
+   npm install
+
+4. Start the development server:
+   ng serve
